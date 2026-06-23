@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Information | Hajj &amp; Umrah Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.gstatic.com">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body class="company-info-page">
+
+    <header class="company-info-navbar">
+        <nav class="navbar container py-3">
+            <a class="brand" href="partner_directory.html">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Back to Partners
+            </a>
+        </nav>
+    </header>
+
+    <main class="company-info-main">
+        <div class="ambient-orb ambient-orb-1"></div>
+        <div class="ambient-orb ambient-orb-2"></div>
+
+        <section class="container company-info-section position-relative">
+            <div class="company-info-header">
+                <h1 class="company-info-name" id="companyName">Company Name</h1>
+                <div class="company-info-logo">
+                    <div class="company-logo-circle">
+                        <div class="company-logo-icon" id="companyLogo"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="company-info-details">
+                <div class="info-field">
+                    <h2>Enrollment Number</h2>
+                    <p id="enrollmentNumber">—</p>
+                </div>
+                <div class="info-field">
+                    <h2>CEO</h2>
+                    <p id="ceoName">—</p>
+                </div>
+                <div class="info-field">
+                    <h2>Email</h2>
+                    <p id="emailAddress">—</p>
+                </div>
+                <div class="info-field">
+                    <h2>Whatsapp Number</h2>
+                    <p id="whatsappNumber">—</p>
+                </div>
+                <div class="info-field info-field-wide">
+                    <h2>Quota Distribution</h2>
+                    <div id="quotaDistribution" class="quota-distribution-detail">
+                        <div class="quota-spinner"></div>
+                        <p class="mb-0 mt-2">Loading quota...</p>
+                    </div>
+                </div>
+                <div class="info-field info-field-wide">
+                    <h2>Routes Purchased</h2>
+                    <div id="routesPurchased" class="routes-purchased-detail">
+                        <div class="routes-purchased-grid" id="routesPurchasedGrid">
+                            <div class="route-purchased-card">
+                                <h3>Loading routes...</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="registration-history" id="registrationHistory" hidden>
+                <h2>Recent Group Registrations</h2>
+                <div class="table-responsive">
+                    <table class="table quota-table">
+                        <thead>
+                            <tr>
+                                <th>Group Name</th>
+                                <th>Size</th>
+                                <th>Submitted</th>
+                            </tr>
+                        </thead>
+                        <tbody id="registrationHistoryBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="partners-footer">
+        <div class="container">
+            <div class="row align-items-center g-3">
+                <div class="col-md-6 text-center text-md-start">
+                    <div class="brand-footer d-flex align-items-center justify-content-center justify-content-md-start gap-2">
+                        <span class="material-symbols-outlined">mosque</span>
+                        Sacred Journey Network
+                    </div>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <small class="text-muted-custom">
+                        &copy; 2024 Sacred Journey Partners. Dedicated to serving the guests of Allah.
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore-compat.js"></script>
+    <script src="companies.js"></script>
+    <script src="api.js"></script>
+    <script>
+        (function () {
+            var params = new URLSearchParams(window.location.search);
+            var id = params.get('id');
+            var quotaEl = document.getElementById('quotaDistribution');
+            var routesGrid = document.getElementById('routesPurchasedGrid');
+            var historySection = document.getElementById('registrationHistory');
+            var historyBody = document.getElementById('registrationHistoryBody');
+            var partner = id && COMPANIES[id] ? COMPANIES[id] : null;
+            var routeNames = [
+                'JED-MAK',
+                'MED AIRPORT-MED',
+                'JED-MED',
+                'JED-TRAIN STATION',
+                'MAK-JED',
+                'MAK-TRAIN STATION',
+                'MED-MAK',
+                'MED-TRAIN STATION',
+                'RAD WAHID',
+                'RADEEN'
+            ];
+
+            if (!id || !partner) {
+                document.getElementById('companyName').textContent = 'Company Not Found';
+                quotaEl.innerHTML = '<p class="mb-0">No enrollment number provided.</p>';
+                return;
+            }
+
+            document.title = partner.name + ' | Company Information';
+            document.getElementById('companyName').textContent = partner.name;
+            document.getElementById('companyLogo').style.backgroundPosition = partner.logoPosition;
+            document.getElementById('enrollmentNumber').textContent = partner.enrollment;
+            document.getElementById('ceoName').textContent = partner.ceo;
+            document.getElementById('emailAddress').textContent = partner.email;
+            document.getElementById('whatsappNumber').textContent = partner.whatsapp;
+
+            function renderQuota(partner) {
+                var percent = partner.quotaTotal
+                    ? Math.min(100, Math.round((partner.quotaUsed / partner.quotaTotal) * 100))
+                    : 0;
+
+                quotaEl.innerHTML =
+                    '<div class="quota-detail-grid">' +
+                        '<div class="quota-detail-item">' +
+                            '<span class="quota-detail-label">Allocated</span>' +
+                            '<span class="quota-detail-value">' + partner.quotaTotal + '</span>' +
+                        '</div>' +
+                        '<div class="quota-detail-item">' +
+                            '<span class="quota-detail-label">Used</span>' +
+                            '<span class="quota-detail-value quota-used">' + partner.quotaUsed + '</span>' +
+                        '</div>' +
+                        '<div class="quota-detail-item">' +
+                            '<span class="quota-detail-label">Remaining</span>' +
+                            '<span class="quota-detail-value quota-remaining">' + partner.quotaRemaining + '</span>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="quota-bar quota-bar-lg" aria-hidden="true">' +
+                        '<div class="quota-bar-fill" style="width: ' + percent + '%;"></div>' +
+                    '</div>' +
+                    '<p class="quota-detail-note mb-0">' + percent + '% of allocated quota has been used through group registrations.</p>';
+            }
+
+            function renderRoutes() {
+                routesGrid.innerHTML = routeNames.map(function (routeName) {
+                    return (
+                        '<div class="route-purchased-card">' +
+                            '<h3>' + routeName + '</h3>' +
+                            '<div class="quota-detail-grid route-detail-grid route-detail-grid-single">' +
+                                '<div class="quota-detail-item">' +
+                                    '<span class="quota-detail-label">Used</span>' +
+                                    '<span class="quota-detail-value route-zero">0</span>' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>'
+                    );
+                }).join('');
+            }
+
+            quotaEl.innerHTML = '<div class="quota-spinner"></div><p class="mb-0 mt-2">Loading quota...</p>';
+            renderRoutes();
+
+            fetchPartnerDetails(id)
+                .then(function (livePartner) {
+                    renderQuota(livePartner);
+                })
+                .catch(function () {
+                    renderQuota({
+                        quotaTotal: parseInt(partner.quota, 10) || 0,
+                        quotaUsed: 0,
+                        quotaRemaining: parseInt(partner.quota, 10) || 0
+                    });
+                });
+
+            fetchPartnerRegistrations(id)
+                .then(function (registrations) {
+                    if (registrations && registrations.length) {
+                        historySection.hidden = false;
+                        historyBody.innerHTML = registrations.map(function (row) {
+                            var date = new Date(row.created_at).toLocaleString();
+                            return (
+                                '<tr>' +
+                                    '<td>' + row.group_name + '</td>' +
+                                    '<td>' + row.group_size + '</td>' +
+                                    '<td>' + date + '</td>' +
+                                '</tr>'
+                            );
+                        }).join('');
+                    }
+                })
+                .catch(function () {
+                    // History is optional; keep the page usable even if this query is slow.
+                });
+        })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

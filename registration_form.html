@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Creation | Hajj 2026/2027</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.gstatic.com">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body class="registration-page">
+
+    <header class="registration-navbar">
+        <nav class="navbar navbar-expand-md container py-3">
+            <a class="brand" href="index.html">
+                <span class="material-symbols-outlined">mosque</span>
+                Sacred Path
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#registrationNav">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="registrationNav">
+                <ul class="navbar-nav align-items-md-center gap-md-4">
+                    <li class="nav-item"><a class="nav-link active" href="#">Registration</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="registration-main">
+        <div class="bg-orb bg-orb-1"></div>
+        <div class="bg-orb bg-orb-2"></div>
+
+        <div class="container position-relative" style="z-index: 10; max-width: 42rem;">
+            <div class="text-center mb-4 registration-header">
+                <h1>Group Creation</h1>
+                <p class="mb-0 form-subtitle">HAJJ 2026/2027</p>
+            </div>
+
+            <div class="form-card">
+                <form id="registrationForm" novalidate>
+                    <div class="mb-4">
+                        <label class="form-label" for="email">Email <span class="required-mark">*</span></label>
+                        <input
+                            type="email"
+                            class="form-control"
+                            id="email"
+                            name="email"
+                            placeholder="Your answer"
+                            required
+                        >
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label" for="company_name">Company Name <span class="required-mark">*</span></label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="company_name"
+                            name="company_name"
+                            placeholder="Your answer"
+                            required
+                        >
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label" for="group_name">Group Name <span class="required-mark">*</span></label>
+                        <p class="form-hint mb-1">(must contain ENR # of your company, arrival city JED/MED and CATEGORY)</p>
+                        <p class="form-example mb-2">* PAKISTAN AL-MASHOOD 3201 ....... JED 10 PAX-A</p>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="group_name"
+                            name="group_name"
+                            placeholder="Your answer"
+                            required
+                        >
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label" for="enrollment_number">Enrollment Number <span class="required-mark">*</span></label>
+                        <p class="form-hint mb-2">Enter your 4-digit enrollment number to load the available quota.</p>
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="enrollment_number"
+                            name="enrollment_number"
+                            placeholder="Enrollment number"
+                            min="1"
+                            step="1"
+                            inputmode="numeric"
+                            required
+                        >
+                    </div>
+
+                    <div class="mb-4">
+                        <div id="quotaFeedback" class="quota-feedback" hidden></div>
+                        <label class="form-label" for="group_size">Group Size <span class="required-mark">*</span></label>
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="group_size"
+                            name="group_size"
+                            placeholder="Number of pilgrims"
+                            min="1"
+                            step="1"
+                            required
+                        >
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label" for="arrival_date">Arrival in K.S.A <span class="required-mark">*</span></label>
+                        <p class="form-hint mb-2">Date</p>
+                        <input
+                            type="date"
+                            class="form-control"
+                            id="arrival_date"
+                            name="arrival_date"
+                            required
+                        >
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label" for="makkah_contract">Makkah / Aziziah Contract # <span class="required-mark">*</span></label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="makkah_contract"
+                            name="makkah_contract"
+                            placeholder="Your answer"
+                            required
+                        >
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label" for="madinah_contract">Madinah Contract # <span class="required-mark">*</span></label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="madinah_contract"
+                            name="madinah_contract"
+                            placeholder="Your answer"
+                            required
+                        >
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label" for="basic_contract">Basic Contract # <span class="required-mark">*</span></label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="basic_contract"
+                            name="basic_contract"
+                            placeholder="Your answer"
+                            required
+                        >
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label" for="camp_contract">Camp Contract # <span class="required-mark">*</span></label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="camp_contract"
+                            name="camp_contract"
+                            placeholder="Your answer"
+                            required
+                        >
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="selection-field">
+                            <p class="selection-title">Arrival: <span class="required-mark">*</span></p>
+                            <p class="selection-subtitle">JED-MAK / MED AIRPORT-MED</p>
+                            <div class="selection-grid">
+                                <div class="selection-grid-header">
+                                    <span></span>
+                                    <span>JED-MAK</span>
+                                    <span>MED AIRPORT - MED</span>
+                                </div>
+                                <div class="selection-grid-row">
+                                    <span class="selection-row-label">Please Mark The Relevant Box</span>
+                                    <label class="selection-cell">
+                                        <input type="radio" name="arrival" value="jed_mak" required>
+                                    </label>
+                                    <label class="selection-cell">
+                                        <input type="radio" name="arrival" value="med_airport_med">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="selection-field">
+                            <p class="selection-title">Mashaer (RADWAHID / RADEEN) <span class="required-mark">*</span></p>
+                            <div class="selection-grid">
+                                <div class="selection-grid-header">
+                                    <span></span>
+                                    <span>RADWAHID</span>
+                                    <span>RADEEN</span>
+                                </div>
+                                <div class="selection-grid-row">
+                                    <span class="selection-row-label">Please Mark The Relevant Box</span>
+                                    <label class="selection-cell">
+                                        <input type="radio" name="mashaer" value="radwahid" required>
+                                    </label>
+                                    <label class="selection-cell">
+                                        <input type="radio" name="mashaer" value="radeen">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="selection-field">
+                            <p class="selection-title">Intercity Transport: <span class="required-mark">*</span></p>
+                            <p class="selection-subtitle">MAK-MED / MED-MAK</p>
+                            <div class="selection-grid">
+                                <div class="selection-grid-header">
+                                    <span></span>
+                                    <span>MAK-MED</span>
+                                    <span>MED-MAK</span>
+                                </div>
+                                <div class="selection-grid-row">
+                                    <span class="selection-row-label">Please Mark The Relevant Box</span>
+                                    <label class="selection-cell">
+                                        <input type="radio" name="intercity_transport" value="mak_med" required>
+                                    </label>
+                                    <label class="selection-cell">
+                                        <input type="radio" name="intercity_transport" value="med_mak">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="selection-field">
+                            <p class="selection-title">Departure: <span class="required-mark">*</span></p>
+                            <p class="selection-subtitle">MAK-JED / MED-MED AIRPORT</p>
+                            <div class="selection-grid">
+                                <div class="selection-grid-header">
+                                    <span></span>
+                                    <span>MAK-JED</span>
+                                    <span>MED - MED AIRPORT</span>
+                                </div>
+                                <div class="selection-grid-row">
+                                    <span class="selection-row-label">Please Mark The Relevant Box</span>
+                                    <label class="selection-cell">
+                                        <input type="radio" name="departure" value="mak_jed" required>
+                                    </label>
+                                    <label class="selection-cell">
+                                        <input type="radio" name="departure" value="med_med_airport">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label" for="hujjaj_list">Upload Hujjaj List (Consist of Pilgrim Name and Passport #) <span class="required-mark">*</span></label>
+                        <p class="form-hint mb-2">Upload 1 supported file. Max 100 MB.</p>
+                        <label class="file-upload-btn" for="hujjaj_list">
+                            <span class="material-symbols-outlined">upload</span>
+                            Add file
+                        </label>
+                        <input
+                            type="file"
+                            class="file-upload-input"
+                            id="hujjaj_list"
+                            name="hujjaj_list"
+                            accept=".pdf,.doc,.docx,.xls,.xlsx,.csv"
+                            required
+                        >
+                        <span class="file-upload-name" id="fileName"></span>
+                    </div>
+
+                    <div class="d-grid d-md-flex justify-content-md-end">
+                        <button type="submit" class="btn-green" id="submitBtn">
+                            <span class="btn-text">Submit</span>
+                            <span class="btn-spinner quota-spinner quota-spinner-sm" hidden></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="submit-overlay" id="submitOverlay" hidden>
+                <div class="submit-overlay-card" aria-live="polite">
+                    <div class="submit-status-icon">
+                        <div class="quota-spinner" id="submitSpinner"></div>
+                        <span class="material-symbols-outlined submit-success-icon" id="submitSuccessIcon" hidden>check_circle</span>
+                    </div>
+                    <p class="mb-1 fw-semibold" id="submitStatusTitle">Submitting registration...</p>
+                    <p class="mb-0 small text-muted" id="submitStatusBody">Validating quota and saving your group details.</p>
+                    <div class="submit-progress">
+                        <div class="submit-progress-bar" id="submitProgressBar"></div>
+                    </div>
+                    <div class="d-grid gap-2 mt-3" id="shareActions" hidden>
+                        <button type="button" class="btn btn-outline-primary" id="downloadPdfBtn">
+                            <span class="material-symbols-outlined align-middle me-1" style="font-size: 18px;">download</span>
+                            Download PDF
+                        </button>
+                        <button type="button" class="btn btn-outline-success" id="shareWhatsAppBtn">
+                            <span class="material-symbols-outlined align-middle me-1" style="font-size: 18px;">share</span>
+                            Share via WhatsApp
+                        </button>
+                        <button type="button" class="btn btn-link text-decoration-none" id="closeSuccessBtn">Start another registration</button>
+                        <small class="text-muted">Your device will open the share sheet so you can choose WhatsApp.</small>
+                    </div>
+                </div>
+            </div>
+
+            <p class="confidentiality-note">
+                <span class="material-symbols-outlined align-middle" style="font-size: 16px;">verified_user</span>
+                Your pilgrimage application is processed with the utmost confidentiality and care.
+            </p>
+        </div>
+    </main>
+
+    <footer class="registration-footer">
+        <div class="container">
+            <div class="text-center text-md-start">
+                <div class="brand-footer">Sacred Path Registration</div>
+                <small class="text-muted">&copy; 2024 Sacred Path Pilgrimage Services. All rights reserved.</small>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-storage-compat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+    <script src="js/companies.js"></script>
+    <script src="js/api.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const fileInput = document.getElementById('hujjaj_list');
+        const fileNameDisplay = document.getElementById('fileName');
+        const form = document.getElementById('registrationForm');
+        const enrollmentInput = document.getElementById('enrollment_number');
+        const groupSizeInput = document.getElementById('group_size');
+        const groupNameInput = document.getElementById('group_name');
+        const companyNameInput = document.getElementById('company_name');
+        const quotaFeedback = document.getElementById('quotaFeedback');
+        const submitBtn = document.getElementById('submitBtn');
+        const submitOverlay = document.getElementById('submitOverlay');
+        const submitOverlayCard = submitOverlay.querySelector('.submit-overlay-card');
+        const submitStatusTitle = document.getElementById('submitStatusTitle');
+        const submitStatusBody = document.getElementById('submitStatusBody');
+        const submitSpinner = document.getElementById('submitSpinner');
+        const submitSuccessIcon = document.getElementById('submitSuccessIcon');
+        const submitProgressBar = document.getElementById('submitProgressBar');
+        const shareActions = document.getElementById('shareActions');
+        const downloadPdfBtn = document.getElementById('downloadPdfBtn');
+        const shareWhatsAppBtn = document.getElementById('shareWhatsAppBtn');
+        const closeSuccessBtn = document.getElementById('closeSuccessBtn');
+        const submitTimeoutMs = 15000;
+        let quotaCheckTimer = null;
+        let latestShareFile = null;
+        let latestShareText = '';
+        let latestPdfBlob = null;
+        let latestPdfFilename = '';
+
+        fileInput.addEventListener('change', function () {
+            fileNameDisplay.textContent = this.files.length ? this.files[0].name : '';
+        });
+
+        function setQuotaFeedback(message, type) {
+            quotaFeedback.hidden = false;
+            quotaFeedback.textContent = message;
+            quotaFeedback.className = 'quota-feedback quota-feedback-' + type;
+        }
+
+        function clearQuotaFeedback() {
+            quotaFeedback.hidden = true;
+            quotaFeedback.textContent = '';
+            quotaFeedback.className = 'quota-feedback';
+        }
+
+        function setGroupSizeLimit(maxQuota) {
+            const quota = parseInt(maxQuota, 10);
+
+            if (Number.isInteger(quota) && quota > 0) {
+                groupSizeInput.max = String(quota);
+            } else {
+                groupSizeInput.removeAttribute('max');
+            }
+
+            validateGroupSizeAgainstQuota();
+        }
+
+        function validateGroupSizeAgainstQuota() {
+            const groupSize = parseInt(groupSizeInput.value, 10);
+            const maxQuota = parseInt(groupSizeInput.max, 10);
+
+            if (!groupSizeInput.value) {
+                groupSizeInput.setCustomValidity('');
+                return true;
+            }
+
+            if (!Number.isInteger(groupSize) || groupSize < 1) {
+                groupSizeInput.setCustomValidity('Group size must be a positive whole number.');
+                return false;
+            }
+
+            if (Number.isInteger(maxQuota) && groupSize > maxQuota) {
+                groupSizeInput.setCustomValidity('Group size cannot be more than the available quota of ' + maxQuota + '.');
+                return false;
+            }
+
+            groupSizeInput.setCustomValidity('');
+            return true;
+        }
+
+        function scheduleQuotaCheck() {
+            clearTimeout(quotaCheckTimer);
+            quotaCheckTimer = setTimeout(checkQuotaNow, 400);
+        }
+
+        function checkQuotaNow() {
+            const enrollmentNumber = enrollmentInput.value.trim();
+            const groupSize = groupSizeInput.value.trim();
+            const groupName = groupNameInput.value.trim();
+            const companyName = companyNameInput.value.trim();
+
+            if (!enrollmentNumber) {
+                clearQuotaFeedback();
+                setGroupSizeLimit(null);
+                return;
+            }
+
+            if (!/^\d{4}$/.test(enrollmentNumber)) {
+                clearQuotaFeedback();
+                setGroupSizeLimit(null);
+                return;
+            }
+
+            if (!groupName) {
+                clearQuotaFeedback();
+            }
+
+            checkQuotaAvailability({
+                enrollmentId: enrollmentNumber,
+                groupSize: groupSize,
+                groupName: groupName,
+                companyName: companyName
+            })
+                .then(function (result) {
+                    if (result.valid) {
+                        setQuotaFeedback(result.message, 'success');
+                        setGroupSizeLimit(result.partner ? result.partner.quotaRemaining : null);
+                    } else {
+                        if (result.partner) {
+                            setGroupSizeLimit(result.partner.quotaRemaining);
+                        } else {
+                            setGroupSizeLimit(null);
+                        }
+                        setQuotaFeedback(result.message, 'error');
+                    }
+                })
+                .catch(function (error) {
+                    setGroupSizeLimit(null);
+                    setQuotaFeedback(error.message, 'error');
+                });
+        }
+
+        [enrollmentInput, groupSizeInput, groupNameInput, companyNameInput].forEach(function (input) {
+            input.addEventListener('input', scheduleQuotaCheck);
+            input.addEventListener('blur', checkQuotaNow);
+        });
+
+        groupSizeInput.addEventListener('input', validateGroupSizeAgainstQuota);
+
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(function () {
+                fetchPartners().catch(function () {
+                    return null;
+                });
+            }, { timeout: 2000 });
+        } else {
+            setTimeout(function () {
+                fetchPartners().catch(function () {
+                    return null;
+                });
+            }, 1500);
+        }
+
+        function animateProgress() {
+            submitProgressBar.style.width = '0%';
+            requestAnimationFrame(function () {
+                submitProgressBar.style.width = '70%';
+            });
+        }
+
+        function withTimeout(promise, timeoutMs, message) {
+            let timeoutId = null;
+            const timeoutPromise = new Promise(function (_resolve, reject) {
+                timeoutId = setTimeout(function () {
+                    reject(new Error(message));
+                }, timeoutMs);
+            });
+
+            return Promise.race([
+                promise.finally(function () {
+                    clearTimeout(timeoutId);
+                }),
+                timeoutPromise
+            ]);
+        }
+
+        function setSubmittingState() {
+            submitOverlay.hidden = false;
+            submitOverlayCard.classList.remove('is-success');
+            submitSpinner.hidden = false;
+            submitSuccessIcon.hidden = true;
+            submitStatusTitle.textContent = 'Submitting registration...';
+            submitStatusBody.textContent = 'Validating quota and saving your group details.';
+            submitProgressBar.style.width = '0%';
+            shareActions.hidden = true;
+            animateProgress();
+        }
+
+        function setSuccessState(message, detail) {
+            submitOverlay.hidden = false;
+            submitOverlayCard.classList.add('is-success');
+            submitSpinner.hidden = true;
+            submitSuccessIcon.hidden = false;
+            submitStatusTitle.textContent = message;
+            submitStatusBody.textContent = detail;
+            submitProgressBar.style.width = '100%';
+            shareActions.hidden = false;
+        }
+
+        function resetSubmitUi() {
+            submitOverlay.hidden = true;
+            submitOverlayCard.classList.remove('is-success');
+            submitProgressBar.style.width = '0%';
+            submitBtn.disabled = false;
+            submitBtn.querySelector('.btn-text').textContent = 'Submit';
+            submitBtn.querySelector('.btn-spinner').hidden = true;
+            submitSpinner.hidden = false;
+            submitSuccessIcon.hidden = true;
+            shareActions.hidden = true;
+            latestShareFile = null;
+            latestShareText = '';
+            latestPdfBlob = null;
+            latestPdfFilename = '';
+        }
+
+        function downloadLatestPdf() {
+            if (!latestPdfBlob) {
+                setQuotaFeedback('Create the PDF first, then download it.', 'error');
+                return;
+            }
+
+            downloadBlob(latestPdfBlob, latestPdfFilename || 'registration.pdf');
+        }
+
+        function buildWhatsAppShareLink(message) {
+            return 'https://wa.me/?text=' + encodeURIComponent(message);
+        }
+
+        async function shareRegistrationPdf() {
+            if (latestShareFile && navigator.share) {
+                var shareData = {
+                    title: 'Sacred Path Registration PDF',
+                    text: latestShareText || 'Registration confirmation PDF',
+                    files: [latestShareFile]
+                };
+
+                if (!navigator.canShare || navigator.canShare(shareData)) {
+                    try {
+                        await navigator.share(shareData);
+                        return;
+                    } catch (error) {
+                        if (!error || error.name === 'AbortError') {
+                            return;
+                        }
+                    }
+                }
+            }
+
+            window.open(
+                buildWhatsAppShareLink((latestShareText || 'Registration confirmation PDF') + '\n\nThe PDF has already been downloaded to your device.'),
+                '_blank',
+                'noopener'
+            );
+        }
+
+        shareWhatsAppBtn.addEventListener('click', shareRegistrationPdf);
+        downloadPdfBtn.addEventListener('click', downloadLatestPdf);
+        closeSuccessBtn.addEventListener('click', function () {
+            form.reset();
+            form.classList.remove('was-validated');
+            fileNameDisplay.textContent = '';
+            groupSizeInput.removeAttribute('max');
+            groupSizeInput.setCustomValidity('');
+            clearQuotaFeedback();
+            submitBtn.classList.remove('success');
+            resetSubmitUi();
+        });
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            if (!form.checkValidity()) {
+                form.classList.add('was-validated');
+                return;
+            }
+
+            const enrollmentNumber = enrollmentInput.value.trim();
+            const groupSize = parseInt(groupSizeInput.value, 10);
+            if (!Number.isInteger(groupSize) || groupSize < 1) {
+                setQuotaFeedback('Group size must be a positive whole number.', 'error');
+                groupSizeInput.focus();
+                return;
+            }
+
+            const maxQuota = parseInt(groupSizeInput.max, 10);
+            if (Number.isInteger(maxQuota) && groupSize > maxQuota) {
+                setQuotaFeedback('Group size cannot be more than the available quota of ' + maxQuota + '.', 'error');
+                groupSizeInput.focus();
+                return;
+            }
+
+            const formData = new FormData(form);
+            submitBtn.disabled = true;
+            submitBtn.querySelector('.btn-text').textContent = 'Processing...';
+            submitBtn.querySelector('.btn-spinner').hidden = false;
+            setSubmittingState();
+
+            try {
+                const provisionalResult = {
+                    registrationId: 'Pending',
+                    enrollmentId: enrollmentNumber,
+                    partner: null
+                };
+                try {
+                    latestPdfBlob = createRegistrationPdfBlob(formData, provisionalResult);
+                    latestPdfFilename = 'registration-pending.pdf';
+                    latestShareFile = new File([latestPdfBlob], latestPdfFilename, { type: 'application/pdf' });
+                    latestShareText = [
+                        'Sacred Path registration confirmation PDF',
+                        'Registration ID: Pending',
+                        'Enrollment Number: ' + getRegistrationDisplayValue(formData.get('enrollment_number'))
+                    ].join('\n');
+                    downloadBlob(latestPdfBlob, latestPdfFilename);
+                } catch (pdfError) {
+                    setQuotaFeedback('Registration started, but the PDF could not be generated: ' + pdfError.message, 'error');
+                }
+
+                const quotaResult = await withTimeout(
+                    checkQuotaAvailability({
+                        enrollmentId: enrollmentNumber,
+                        groupSize: groupSizeInput.value.trim(),
+                        groupName: groupNameInput.value.trim(),
+                        companyName: companyNameInput.value.trim()
+                    }),
+                    submitTimeoutMs,
+                    'Checking quota is taking too long. Please try again.'
+                );
+
+                if (!quotaResult.valid) {
+                    resetSubmitUi();
+                    setQuotaFeedback(quotaResult.message, 'error');
+                    return;
+                }
+
+                const result = await withTimeout(
+                    submitRegistration(formData),
+                    submitTimeoutMs,
+                    'Saving the registration is taking too long. Please try again in a moment.'
+                );
+                try {
+                    latestPdfBlob = createRegistrationPdfBlob(formData, result);
+                    latestPdfFilename = getRegistrationPdfFilename(result);
+                    latestShareFile = new File([latestPdfBlob], latestPdfFilename, { type: 'application/pdf' });
+                    latestShareText = [
+                        'Sacred Path registration confirmation PDF',
+                        'Registration ID: ' + getRegistrationDisplayValue(result && result.registrationId),
+                        'Enrollment Number: ' + getRegistrationDisplayValue(formData.get('enrollment_number'))
+                    ].join('\n');
+                } catch (pdfError) {
+                    setQuotaFeedback('Registration saved, but the PDF could not be regenerated: ' + pdfError.message, 'error');
+                }
+                submitBtn.querySelector('.btn-text').textContent = 'Submitted';
+                submitBtn.querySelector('.btn-spinner').hidden = true;
+                submitBtn.classList.add('success');
+                setSuccessState(
+                    'Form submitted successfully',
+                    'Your PDF was downloaded automatically. Use the button below to share it on WhatsApp.'
+                );
+
+                setQuotaFeedback(
+                    'Registration saved. ' + result.groupSize + ' pilgrims deducted from ' +
+                    result.partner.enrollment + ' quota. Remaining: ' + result.partner.quotaRemaining + '.',
+                    'success'
+                );
+            } catch (error) {
+                resetSubmitUi();
+                setQuotaFeedback(error.message, 'error');
+            }
+        });
+    </script>
+</body>
+</html>
